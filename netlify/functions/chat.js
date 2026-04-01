@@ -73,7 +73,7 @@ exports.handler = async function(event) {
     });
     const data = await r.json();
     const fullText = messages.map(m => m.content).join(' ');
-    if (/\d{3}[\s.-]?\d{3}[\s.-]?\d{4}/.test(fullText) && messages.length >= 4) {
+  if (messages.length >= 6) {
       extractAndSend(messages, apiKey);
     }
     return { statusCode: 200, headers, body: JSON.stringify(data) };
